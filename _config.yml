@@ -9,7 +9,7 @@ highlighter: pygments
 
 paginate: 20
 baseurl: /
-domain_name: 'http://yourblog-domain.com'
+domain_name: 'http://blog.toastshaman.com'
 google_analytics: 'UA-56954286-1'
 disqus: true
 disqus_shortname: 'iliketoastandprogramming'
