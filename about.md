@@ -4,7 +4,10 @@ permalink: about/
 profile: true
 ---
 
-Hi, my name is Kevin and I'm a London based Senior Software Engineer at [Zuhlke Engineering Ltd.](http://www.zuehlke.com/)
+Hello, my name is Kevin and I'm a London based Senior Software
+Engineer at [Zuhlke Engineering Ltd.](http://www.zuehlke.com/)
+
+You can contact me here: <a href="mailto:kevin.denver@gmail.com">kevin.denver@gmail.com</a>
 
 Here are some of my projects:
 
