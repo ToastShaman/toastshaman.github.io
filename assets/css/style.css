@@ -129,8 +129,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .profile #avatar {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -197,6 +197,14 @@ nav.main-nav a.cta {
 
 /* Typography */
 
+::-moz-selection { /* Code for Firefox */
+  background-color: #b4e7f8;
+  color: black;
+}
+::selection {
+  background-color: #b4e7f8;
+  color: black;
+}
 
 /*Accent color*/
 
