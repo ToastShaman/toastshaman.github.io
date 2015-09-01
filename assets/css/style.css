@@ -370,7 +370,6 @@ span.code {
   font-size: 14px;
 }
 pre {
-  font-family: Menlo, Monaco, Courier;
   white-space: pre-wrap;
   /*border: 1px solid #ddd;*/
   padding: 20px;
@@ -379,7 +378,7 @@ pre {
   overflow: auto;
   border-radius: 3px;
   background: #272b2d;
-  font-family: 'Source Code Pro', Menlo, monospace;
+  font-family: Hack, 'Source Code Pro', Menlo, monospace;
   font-size: 13px;
   line-height: 1.5em;
   font-weight: 500;
