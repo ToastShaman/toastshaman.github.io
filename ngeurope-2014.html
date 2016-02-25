@@ -60,7 +60,7 @@
         controllers. As the project’s grow in size this can easily and quite quickly turn into unreadable and hard to maintain
         code. One of the solutions to this issue is to use the <a href="http://en.wikipedia.org/wiki/Active_record_pattern">Active Record Pattern</a>.
         The active record pattern turns the model you expose through your controller into the main driver of business logic.</p>
-        
+
       <gist id="73aa4bb2cbc94ea8e8d3"></gist>
 
       <h2>The Future: Angular 2.0</h2>
@@ -81,11 +81,10 @@
 
       <p>For example, one of the proposals is to use the previously vetted syntax that was proposed in ECMAScript 4 to introduce
         type declarations. Notice that the translation to ES6 simply strips the type information.</p>
-        
+
       <gist id="9f4b34cd30df190e8e94"></gist>
 
-      <p>Although AtScript doesn’t exist yet and ES6 is <a href="http://kangax.github.io/compat-table/es6/">not fully supported</a> 
-        by desktop browsers at the moment you can still use ES6 features when writing your Angular applications today. By
+      <p>Although AtScript doesn’t exist yet and ES6 is <a href="http://kangax.github.io/compat-table/es6/">not fully supported</a>        by desktop browsers at the moment you can still use ES6 features when writing your Angular applications today. By
         using <a href="https://code.google.com/p/traceur-compiler/">Google’s Traceur</a> compiler you can use all of the
         major ES6 features and Traceur will transpile your code to ES5, which is currently supported by all modern browsers,
         before you deploy your application.</p>
@@ -105,14 +104,7 @@
 
 <section class="section">
   <div class="container">
-    <a class="button is-primary">Tweet</a>
-    <a class="button is-primary" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-    </a>
+    <ng-include src="'twitter.html'"></ng-include>
   </div>
 </section>
 
