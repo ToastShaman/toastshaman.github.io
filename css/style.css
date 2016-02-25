@@ -1,0 +1,21 @@
+#avatar {
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.is-zuhlke {
+  background: #925FA7;
+  border-color: transparent;
+  color: #fff;
+}
+
+.is-zuhlke:hover {
+  color: #fff;
+}
+
+p.read-more {
+  margin-top: 15px;
+}
