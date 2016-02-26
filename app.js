@@ -11,12 +11,12 @@
   application.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'welcome.html',
+        templateUrl: 'templates/welcome.html',
         controller: 'WelcomeController',
         controllerAs: 'welcome'
       })
       .when('/ngeurope-2014', {
-        templateUrl: 'ngeurope-2014.html',
+        templateUrl: 'templates/posts/2014/ngeurope-2014.html',
         controller: 'WelcomeController',
         controllerAs: 'welcome'
       })
