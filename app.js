@@ -15,6 +15,11 @@
         controller: 'WelcomeController',
         controllerAs: 'welcome'
       })
+      .when('/aggregator-with-hazelcast', {
+        templateUrl: 'templates/posts/2015/aggregator-with-hazelcast.html',
+        controller: 'WelcomeController',
+        controllerAs: 'welcome'
+      })
       .when('/ngeurope-2014', {
         templateUrl: 'templates/posts/2014/ngeurope-2014.html',
         controller: 'WelcomeController',
