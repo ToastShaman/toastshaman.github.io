@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "33AUWD68J4.HSBC.MobileX",
+        "paths": [
+          "/dsk/migration/start/*",
+          "/dsk/migration/seeds/send/*"
+        ]
+      },
+      {
+        "appID": "33AUWD68J4.HSBC.Mobile-1-5",
+        "paths": [
+          "/dsk/migration/publickey/send/*",
+          "/dsk/migration/seeds/delete/*"
+        ]
+      }
+    ]
+  }
+}
