@@ -5,6 +5,8 @@ theme = 'paper'
 publishDir = 'docs'
 
 [params]
+  color = 'gray'
+
   twitter = 'toastshaman'
   github = 'toastshaman'
   instagram = 'toastshaman'
