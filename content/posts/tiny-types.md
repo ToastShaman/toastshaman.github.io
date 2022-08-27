@@ -22,6 +22,8 @@ public void sendEmail(String recipient, String subject, String body) {
 Having to deal with non type-safe methods can easily lead to confusion and is a common source of bugs in my experience.
 For example, the `sendEmail` method expects the second argument to be a string containing the subject of the email.
 It would be an easy mistake to make to swap the subject with the body of the email.
+Additionally, the `sendEmail` method will need to check whether the provided arguments are valid.
+For example, can the body or the subject be an empty or blank string?
 
 ```java
 // compiles without errors
@@ -80,8 +82,8 @@ public record Subject(String value) {
 ```
 
 The [parse, don't validate][3] mantra is all about parsing/validating incoming data to a specific type or failing in a controlled manner if the validation fails.
-It's about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very edges of your programs.
-Don't pass incoming data deep into your code, parse it right away and fail fast if needed.
+It's about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very **edges** of your system.
+**Don't pass incoming data deep into your code, parse it right away and fail fast if needed!**
 
 Alternatively, you can use my [toastshaman/tiny-types][4] implementation with JSON support.
 

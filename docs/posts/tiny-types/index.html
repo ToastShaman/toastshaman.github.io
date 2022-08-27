@@ -131,7 +131,7 @@ The problem which we are trying to solve is to avoid illegal values entering int
 <meta itemprop="description" content="I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.
 The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling."><meta itemprop="datePublished" content="2022-08-27T13:30:10+01:00" />
 <meta itemprop="dateModified" content="2022-08-27T13:30:10+01:00" />
-<meta itemprop="wordCount" content="491">
+<meta itemprop="wordCount" content="519">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -267,7 +267,9 @@ The only way to know how to call the method correctly is by paying close attenti
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Having to deal with non type-safe methods can easily lead to confusion and is a common source of bugs in my experience.
 For example, the <code>sendEmail</code> method expects the second argument to be a string containing the subject of the email.
-It would be an easy mistake to make to swap the subject with the body of the email.</p>
+It would be an easy mistake to make to swap the subject with the body of the email.
+Additionally, the <code>sendEmail</code> method will need to check whether the provided arguments are valid.
+For example, can the body or the subject be an empty or blank string?</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// compiles without errors
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sendEmail<span style="color:#f92672">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;alice@example.com&#34;</span><span style="color:#f92672">,</span> 
@@ -308,8 +310,8 @@ We can achieve <a href="https://en.wikipedia.org/wiki/Type_safety">type-safety</
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>The <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">parse, don&rsquo;t validate</a> mantra is all about parsing/validating incoming data to a specific type or failing in a controlled manner if the validation fails.
-It&rsquo;s about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very edges of your programs.
-Don&rsquo;t pass incoming data deep into your code, parse it right away and fail fast if needed.</p>
+It&rsquo;s about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very <strong>edges</strong> of your system.
+<strong>Don&rsquo;t pass incoming data deep into your code, parse it right away and fail fast if needed!</strong></p>
 <p>Alternatively, you can use my <a href="https://github.com/ToastShaman/tiny-types">toastshaman/tiny-types</a> implementation with JSON support.</p>
 <p>Another great library if you are using Kotlin is <a href="https://github.com/fork-handles/forkhandles/tree/trunk/values4k">forkhandles/values4k</a>.</p>
 </section>
