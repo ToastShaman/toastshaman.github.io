@@ -1,0 +1,19 @@
+baseURL = 'https://blog.toastshaman.com/'
+languageCode = 'en-gb'
+title = 'The Programming Bibliophile'
+theme = 'paper'
+publishDir = 'docs'
+
+[params]
+  twitter = 'toastshaman'
+  github = 'toastshaman'
+  instagram = 'toastshaman'
+
+  # home page profile
+  avatar = 'kevin.denver@gmail.com'
+  name = 'Kevin Denver'
+  bio = 'Full time creative and bibliophile.'
+
+  # misc
+  disableHLJS = false
+  monoDarkIcon = true
