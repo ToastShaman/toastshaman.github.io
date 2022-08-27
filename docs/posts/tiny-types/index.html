@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="en-gb"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Tiny Types: Avoid stringly-typed systems - The Programming Bibliophile</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.
+The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling." />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://blog.toastshaman.com/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://blog.toastshaman.com/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+    
+  
+  <link
+    rel="preload"
+    as="image"
+    href="https://blog.toastshaman.com/theme.png"
+  />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/7e7507d7e2fd7f2c99d9be092c1f4044?s=160&amp;d=identicon" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://blog.toastshaman.com/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://blog.toastshaman.com/github.svg" />
+  
+  <link rel="preload" as="image" href="https://blog.toastshaman.com/instagram.svg" />
+  
+
+  
+  <link rel="icon" href="https://blog.toastshaman.com/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.toastshaman.com/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.101.0" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Tiny Types: Avoid stringly-typed systems" />
+<meta property="og:description" content="I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.
+The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.toastshaman.com/posts/tiny-types/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-27T13:30:10+01:00" />
+<meta property="article:modified_time" content="2022-08-27T13:30:10+01:00" />
+
+
+  
+  <meta itemprop="name" content="Tiny Types: Avoid stringly-typed systems">
+<meta itemprop="description" content="I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.
+The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling."><meta itemprop="datePublished" content="2022-08-27T13:30:10+01:00" />
+<meta itemprop="dateModified" content="2022-08-27T13:30:10+01:00" />
+<meta itemprop="wordCount" content="491">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tiny Types: Avoid stringly-typed systems"/>
+<meta name="twitter:description" content="I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.
+The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href="https://blog.toastshaman.com/"
+      >The Programming Bibliophile</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkVal = localStorage.getItem('dark');
+    setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href=" https://twitter.com/toastshaman "
+        target="_blank"
+      ></a>
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/toastshaman "
+        target="_blank"
+      ></a>
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./instagram.svg)"
+        href=" https://instagram.com/toastshaman "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Tiny Types: Avoid stringly-typed systems</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Aug 27, 2022</time>
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>I am a big fan of <strong>tiny types</strong> also known as <strong>micro types</strong> or <strong>value types</strong>.
+The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&rsquo;ll never pass any primitives around.</p>
+<p>The problem which we are trying to solve is to avoid illegal values entering into our system.
+<em>For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling.</em></p>
+<p>Take the following <code>sendEmail</code> method for example.
+You can&rsquo;t distinguish between the recipient&rsquo;s email address, subject or body because they are all strings.
+The only way to know how to call the method correctly is by paying close attention to the argument names and their position.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendEmail</span><span style="color:#f92672">(</span>String recipient<span style="color:#f92672">,</span> String subject<span style="color:#f92672">,</span> String body<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Having to deal with non type-safe methods can easily lead to confusion and is a common source of bugs in my experience.
+For example, the <code>sendEmail</code> method expects the second argument to be a string containing the subject of the email.
+It would be an easy mistake to make to swap the subject with the body of the email.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// compiles without errors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sendEmail<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;alice@example.com&#34;</span><span style="color:#f92672">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Hello Alice, I hope ...&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// body - should be the last argument!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;Reminder: Please RSVP&#34;</span> <span style="color:#75715e">// subject - should be the second argument!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>Depending on your setup you might not be able to find this bug quickly.
+We can achieve <a href="https://en.wikipedia.org/wiki/Type_safety">type-safety</a> by applying the concept of tiny types to the <code>sendEmail</code> method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendEmail</span><span style="color:#f92672">(</span>Recipient recipient<span style="color:#f92672">,</span> Subject subject<span style="color:#f92672">,</span> Body body<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Once applied, the compiler will fail to compile the code if we&rsquo;re trying to invoke the <code>sendEmail</code> method with arguments in the wrong position.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// fails to compile: expected Recipient got Subject
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sendEmail<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    Subject<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Reminder: Please RSVP&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>    Recipient<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;alice@example.com&#34;</span><span style="color:#f92672">),</span> 
+</span></span><span style="display:flex;"><span>    Body<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello Alice&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// compiles without errors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sendEmail<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    Recipient<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;alice@example.com&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>    Subject<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Reminder: Please RSVP&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>    Body<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello Alice&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><h2 id="how-to-implement-tiny-types">How to implement tiny types?</h2>
+<p>The examples are in Java/Kotlin but can be applied to other strictly typed programming languages.</p>
+<p>A simple and ad-hoc approach is to use <a href="https://www.baeldung.com/java-record-keyword">Java&rsquo;s record classes</a> to create your domain objects including <strong>validation</strong> at the point of creation!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> java.util.Objects.requireNonNull<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> record <span style="color:#a6e22e">Subject</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Subject <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>requireNonNull<span style="color:#f92672">(</span>value<span style="color:#f92672">).</span><span style="color:#a6e22e">isBlank</span><span style="color:#f92672">())</span> <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;must not be blank&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Subject <span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Subject<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">parse, don&rsquo;t validate</a> mantra is all about parsing/validating incoming data to a specific type or failing in a controlled manner if the validation fails.
+It&rsquo;s about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very edges of your programs.
+Don&rsquo;t pass incoming data deep into your code, parse it right away and fail fast if needed.</p>
+<p>Alternatively, you can use my <a href="https://github.com/ToastShaman/tiny-types">toastshaman/tiny-types</a> implementation with JSON support.</p>
+<p>Another great library if you are using Kotlin is <a href="https://github.com/fork-handles/forkhandles/tree/trunk/values4k">forkhandles/values4k</a>.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60">
+  <div class="mr-auto">
+    &copy; 2022
+    <a class="link" href="https://blog.toastshaman.com/">The Programming Bibliophile</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a
+  >️
+  <a class="link" href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"
+    >▷ Paper 6</a
+  >
+</footer>
+
+  </body>
+</html>
