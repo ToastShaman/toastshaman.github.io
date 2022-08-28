@@ -5,3 +5,7 @@ build:
 serve:
 	hugo server -D
 .PHONY: serve
+
+publish: build
+	gitupdate .
+.PHONY: publish
