@@ -69,13 +69,70 @@ Tiny types become even more powerful when applied at the edges of your system as
 They enforce that only valid values are allowed to enter your system through a REST interface, persistence layer, etc.
 This in turn will simplify your business logic because you can trust that the data you are given is valid.
 
-If we were to expose the `sendEmail` function through a REST interface we might write a [Spring Boot][6] controller to accept a JSON payload such as the following.
+A simple and ad-hoc approach to implementing tiny types is to use [Java's record classes][2] to define your domain objects including **validation** at the point of creation!
+
+```java
+import static java.util.Objects.requireNonNull;
+
+public record Subject(String value) {
+    public Subject {
+        if (requireNonNull(value).isBlank()) 
+            throw new IllegalArgumentException("must not be blank");
+    }
+
+    public static Subject of(String value) {
+        return new Subject(value);
+    }
+}
+```
+
+Alternatively, you can use my [toastshaman/tiny-types][4] implementation.
+Another great library if you are using Kotlin is [forkhandles/values4k][5].
+
+If we were to expose the `sendEmail` function through a REST interface we might write a [Spring Boot][6] controller to accept a JSON payload.
 
 ```json
 {
   "recipient": "alice@example.com",
   "subject": "Reminder: Please RSVP",
   "body": "Hello Alice"
+}
+```
+
+Which we want to map to to a Java POJO using tiny types.
+
+```java
+public record SendEmailRequest(
+  Recipient recipient, 
+  Subject subject, 
+  Body body
+) {}
+```
+
+Spring Boot uses [jackson-databind][7] to map JSON objects to Java POJOs.
+We have to tell Jackson how to deserialize plain JSON strings into our recipient, subject and body tiny types.
+Jackson allows you to define your own custom serialzers and deserializers by writing a `SimpleModule`.
+
+```java
+@Component
+public class TinyTypeModule extends SimpleModule {
+
+    public TinyTypeModule() {
+        text(Subject.class, Subject::new);
+        text(Recipient.class, Recipient::new);
+        text(Body.class, Body::new);
+    }
+
+    public <T> void text(Class<T> type, Function<String, T> creatorFn) {
+        addDeserializer(type, new JsonDeserializer<>() {
+            @Override
+            public T deserialize(
+                    JsonParser p,
+                    DeserializationContext ctxt) throws IOException {
+                return creatorFn.apply(p.getText());
+            }
+        });
+    }
 }
 ```
 
@@ -109,33 +166,10 @@ public class EmailController {
 }
 ```
 
-## How to implement tiny types?
-
-This example is in Java but the idea can be applied to other strictly typed programming languages.
-
-A simple and ad-hoc approach is to use [Java's record classes][2] to create your domain objects including **validation** at the point of creation!
-
-```java
-import static java.util.Objects.requireNonNull;
-
-public record Subject(String value) {
-    public Subject {
-        if (requireNonNull(value).isBlank()) throw new IllegalArgumentException("must not be blank");
-    }
-
-    public static Subject of(String value) {
-        return new Subject(value);
-    }
-}
-```
-
-Alternatively, you can use my [toastshaman/tiny-types][4] implementation with JSON support.
-
-Another great library if you are using Kotlin is [forkhandles/values4k][5].
-
 [1]: https://en.wikipedia.org/wiki/Type_safety
 [2]: https://www.baeldung.com/java-record-keyword
 [3]: https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/
 [4]: https://github.com/ToastShaman/tiny-types
 [5]: https://github.com/fork-handles/forkhandles/tree/trunk/values4k
 [6]: https://spring.io/projects/spring-boot
+[7]: https://github.com/FasterXML/jackson-databind
