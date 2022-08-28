@@ -65,9 +65,53 @@ sendEmail(
 );
 ```
 
+Tiny types become even more powerful when applied at the edges of your system as previously mentioned (*[parse, don't validate][3]*).
+They enforce that only valid values are allowed to enter your system through a REST interface, persistence layer, etc.
+This in turn will simplify your business logic because you can trust that the data you are given is valid.
+
+If we were to expose the `sendEmail` function through a REST interface we might write a [Spring Boot][6] controller to accept a JSON payload such as the following.
+
+```json
+{
+  "recipient": "alice@example.com",
+  "subject": "Reminder: Please RSVP",
+  "body": "Hello Alice"
+}
+```
+
+```java
+@RestController
+public class EmailController {
+    private final Emails emails;
+
+    public EmailController(Emails emails) {
+        this.emails = emails;
+    }
+
+    public record SendEmailRequest(
+            Recipient recipient,
+            Subject subject,
+            Body body
+    ) {}
+
+    @PostMapping("/emails")
+    public ResponseEntity<Void> sendEmail(
+            @RequestBody SendEmailRequest request
+    ) {
+        try {
+            // at this point we know the data is valid!
+            sendEmail(request.recipient, request.subject, request.body);
+            return ResponseEntity.accepted().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+}
+```
+
 ## How to implement tiny types?
 
-The examples are in Java/Kotlin but can be applied to other strictly typed programming languages.
+This example is in Java but the idea can be applied to other strictly typed programming languages.
 
 A simple and ad-hoc approach is to use [Java's record classes][2] to create your domain objects including **validation** at the point of creation!
 
@@ -94,3 +138,4 @@ Another great library if you are using Kotlin is [forkhandles/values4k][5].
 [3]: https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/
 [4]: https://github.com/ToastShaman/tiny-types
 [5]: https://github.com/fork-handles/forkhandles/tree/trunk/values4k
+[6]: https://spring.io/projects/spring-boot
