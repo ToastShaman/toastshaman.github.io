@@ -7,7 +7,7 @@ I am a big fan of **tiny types** also known as **micro types** or **value types*
 The idea is simple - all primitives and strings in your code are wrapped by a class, which means you'll never pass any primitives around.
 
 The problem which we are trying to solve is to avoid illegal values entering into our system.
-*For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling.*
+*"For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling."*
 
 Take the following `sendEmail` method for example.
 You can't distinguish between the recipient's email address, subject or body because they are all strings.

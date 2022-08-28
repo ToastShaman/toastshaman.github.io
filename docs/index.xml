@@ -14,7 +14,7 @@
       
       <guid>https://blog.toastshaman.com/posts/tiny-types/</guid>
       <description>I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&amp;rsquo;ll never pass any primitives around.
-The problem which we are trying to solve is to avoid illegal values entering into our system. For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling.</description>
+The problem which we are trying to solve is to avoid illegal values entering into our system. &amp;ldquo;For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling.</description>
     </item>
     
   </channel>
