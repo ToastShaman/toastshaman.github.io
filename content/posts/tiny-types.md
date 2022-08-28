@@ -123,7 +123,7 @@ public class TinyTypeModule extends SimpleModule {
         text(Body.class, Body::new);
     }
 
-    public <T> void text(Class<T> type, Function<String, T> creatorFn) {
+    private <T> void text(Class<T> type, Function<String, T> creatorFn) {
         addDeserializer(type, new JsonDeserializer<>() {
             @Override
             public T deserialize(
@@ -165,6 +165,10 @@ public class EmailController {
     }
 }
 ```
+
+We've now removed all the primitives from our REST interface and avoided a stringly-typed system.
+We've validated the data at the edge of the system before we process the data further.
+We can lean on the compiler and it's type checking to enforce rules and relationships between classes which will greatly improve the soundness and maintainability of the system.
 
 [1]: https://en.wikipedia.org/wiki/Type_safety
 [2]: https://www.baeldung.com/java-record-keyword
