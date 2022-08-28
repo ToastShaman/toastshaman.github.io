@@ -6,8 +6,12 @@ date: 2022-08-27T13:30:10+01:00
 I am a big fan of **tiny types** also known as **micro types** or **value types**.
 The idea is simple - all primitives and strings in your code are wrapped by a class, which means you'll never pass any primitives around.
 
-The problem which we are trying to solve is to avoid illegal values entering into our system.
-*"For this, it is best to use strongly typed values, which allow us to both lean on the compiler and improve the developer experience by engaging with IDE tooling."*
+The problem which we are trying to solve is to avoid illegal values entering your system.
+For this, it is best to use strongly typed values, which allows you to both lean on the compiler and improve the developer experience by engaging with IDE tooling.
+
+The [parse, don't validate][3] mantra is all about parsing incoming data to a specific type, or failing in a controlled manner if the parsing fails.
+It's about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very **edges** of your system.
+**Don't pass incoming data deep into your code, parse it right away and fail fast if needed!**
 
 Take the following `sendEmail` method for example.
 You can't distinguish between the recipient's email address, subject or body because they are all strings.
@@ -23,7 +27,7 @@ Having to deal with non type-safe methods can easily lead to confusion and is a 
 For example, the `sendEmail` method expects the second argument to be a string containing the subject of the email.
 It would be an easy mistake to make to swap the subject with the body of the email.
 Additionally, the `sendEmail` method will need to check whether the provided arguments are valid.
-For example, can the body or the subject be an empty or blank string?
+For example, can the body or the subject be an empty, blank or null string?
 
 ```java
 // compiles without errors
@@ -80,10 +84,6 @@ public record Subject(String value) {
     }
 }
 ```
-
-The [parse, don't validate][3] mantra is all about parsing/validating incoming data to a specific type or failing in a controlled manner if the validation fails.
-It's about using trusted, safe and typed data structures inside your code and making sure all incoming data is handled at the very **edges** of your system.
-**Don't pass incoming data deep into your code, parse it right away and fail fast if needed!**
 
 Alternatively, you can use my [toastshaman/tiny-types][4] implementation with JSON support.
 
