@@ -161,7 +161,7 @@ public class EmailController {
     ) {
         try {
             // at this point we know the data is valid!
-            sendEmail(request.recipient, request.subject, request.body);
+            emails.sendEmail(request.recipient, request.subject, request.body);
             return ResponseEntity.accepted().build();
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
