@@ -65,12 +65,6 @@ The problem which we are trying to solve is to avoid illegal values entering you
   <link rel="preload stylesheet" as="style" href="https://blog.toastshaman.com/main.min.css" />
 
   
-  <script
-    defer
-    src="https://blog.toastshaman.com/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
 
   
   
@@ -112,8 +106,30 @@ The problem which we are trying to solve is to avoid illegal values entering you
   
   
   
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-0809XBT1KC', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0809XBT1KC"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-0809XBT1KC', { 'anonymize_ip': false });
+}
+</script>
+
   
   
   
@@ -427,6 +443,15 @@ We can lean on the compiler and it&rsquo;s type checking to enforce rules and re
   
 
   
+  
+  <div id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'toastshaman';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 </article>
 

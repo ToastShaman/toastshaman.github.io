@@ -4,6 +4,9 @@ title = 'The Programming Bibliophile'
 theme = 'paper'
 publishDir = 'docs'
 
+disqusShortname = 'toastshaman'
+googleAnalytics = 'G-0809XBT1KC'
+
 [params]
   color = 'gray'
 
@@ -17,5 +20,5 @@ publishDir = 'docs'
   bio = 'Full time creative and bibliophile.'
 
   # misc
-  disableHLJS = false
+  disableHLJS = true
   monoDarkIcon = true
