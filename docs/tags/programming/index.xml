@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on The Programming Bibliophile</title>
+    <link>https://blog.toastshaman.com/tags/programming/</link>
+    <description>Recent content in programming on The Programming Bibliophile</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 27 Aug 2022 13:30:10 +0100</lastBuildDate><atom:link href="https://blog.toastshaman.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tiny Types: Avoid stringly-typed systems</title>
+      <link>https://blog.toastshaman.com/posts/tiny-types/</link>
+      <pubDate>Sat, 27 Aug 2022 13:30:10 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/posts/tiny-types/</guid>
+      <description>I am a big fan of tiny types also known as micro types or value types. The idea is simple - all primitives and strings in your code are wrapped by a class, which means you&amp;rsquo;ll never pass any primitives around.
+The problem which we are trying to solve is to avoid illegal values entering your system. For this, it is best to use strongly typed values, which allows you to both lean on the compiler and improve the developer experience by engaging with IDE tooling.</description>
+    </item>
+    
+  </channel>
+</rss>

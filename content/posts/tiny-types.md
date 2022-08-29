@@ -1,6 +1,7 @@
 ---
 title: "Tiny Types: Avoid stringly-typed systems"
 date: 2022-08-27T13:30:10+01:00
+tags: ['programming', 'oop', 'tiny-types', 'spring-boot', 'jackson']
 ---
 
 I am a big fan of **tiny types** also known as **micro types** or **value types**.
@@ -48,6 +49,7 @@ public void sendEmail(Recipient recipient, Subject subject, Body body) {
 ```
 
 Once applied, the compiler will fail to compile the code if we're trying to invoke the `sendEmail` method with arguments in the wrong position.
+The instant feedback from the compiler is the beauty using tiny types.
 
 ```java
 // fails to compile: expected Recipient got Subject
@@ -99,7 +101,7 @@ If we were to expose the `sendEmail` function through a REST interface we might 
 }
 ```
 
-Which we want to map to to a Java POJO using tiny types.
+Which we want to map to a [Java POJO][8] using tiny types.
 
 ```java
 public record SendEmailRequest(
@@ -135,6 +137,8 @@ public class TinyTypeModule extends SimpleModule {
     }
 }
 ```
+
+If you are using Spring Boot, the `@Component` annotation on your `SimpleModule` will ensure that the module will be registered with the global `ObjectMapper` instance of your Spring Boot application.
 
 ```java
 @RestController
@@ -177,3 +181,4 @@ We can lean on the compiler and it's type checking to enforce rules and relation
 [5]: https://github.com/fork-handles/forkhandles/tree/trunk/values4k
 [6]: https://spring.io/projects/spring-boot
 [7]: https://github.com/FasterXML/jackson-databind
+[8]: https://www.baeldung.com/java-pojo-class
