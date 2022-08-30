@@ -23,3 +23,10 @@ disqusShortname = 'toastshaman'
   # misc
   disableHLJS = true
   monoDarkIcon = true
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
