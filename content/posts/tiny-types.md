@@ -134,8 +134,8 @@ public class TinyTypeModule extends SimpleModule {
     }
 
     private  <T> void text(Class<T> type,
-                         Function<String, T> creatorFn,
-                         Function<T, String> showFn) {
+                           Function<String, T> creatorFn,
+                           Function<T, String> showFn) {
         addDeserializer(type, new JsonDeserializer<>() {
             @Override
             public T deserialize(JsonParser p,
