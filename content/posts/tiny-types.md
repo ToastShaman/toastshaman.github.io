@@ -19,7 +19,11 @@ You can't distinguish between the recipient's email address, subject or body bec
 The only way to know how to call the method correctly is by paying close attention to the argument names and their position.
 
 ```java
-public void sendEmail(String recipient, String subject, String body) {
+public void sendEmail(
+    String recipient, 
+    String subject, 
+    String body
+) {
     // ...
 }
 ```
@@ -43,7 +47,11 @@ Depending on your setup you might not be able to find this bug quickly.
 We can achieve [type-safety][1] by applying the concept of tiny types to the `sendEmail` method.
 
 ```java
-public void sendEmail(Recipient recipient, Subject subject, Body body) {
+public void sendEmail(
+    Recipient recipient,
+    Subject subject,
+    Body body
+) {
     // ...
 }
 ```
@@ -55,7 +63,7 @@ The instant feedback from the compiler is the beauty using tiny types.
 // fails to compile: expected Recipient got Subject
 sendEmail(
     Subject.of("Reminder: Please RSVP"),
-    Recipient.of("alice@example.com"), 
+    Recipient.of("alice@example.com"),
     Body.of("Hello Alice")
 );
 
@@ -105,8 +113,8 @@ Which we want to map to a [Java POJO][8] using tiny types.
 
 ```java
 public record SendEmailRequest(
-  Recipient recipient, 
-  Subject subject, 
+  Recipient recipient,
+  Subject subject,
   Body body
 ) {}
 ```
@@ -120,18 +128,28 @@ Jackson allows you to define your own custom serialzers and deserializers by wri
 public class TinyTypeModule extends SimpleModule {
 
     public TinyTypeModule() {
-        text(Subject.class, Subject::new);
-        text(Recipient.class, Recipient::new);
-        text(Body.class, Body::new);
+        text(Subject.class, Subject::new, Subject::value);
+        text(Recipient.class, Recipient::new, Recipient::value);
+        text(Body.class, Body::new, Body::value);
     }
 
-    private <T> void text(Class<T> type, Function<String, T> creatorFn) {
+    private  <T> void text(Class<T> type,
+                         Function<String, T> creatorFn,
+                         Function<T, String> showFn) {
         addDeserializer(type, new JsonDeserializer<>() {
             @Override
-            public T deserialize(
-                    JsonParser p,
-                    DeserializationContext ctxt) throws IOException {
+            public T deserialize(JsonParser p,
+                                 DeserializationContext ctxt) throws IOException {
                 return creatorFn.apply(p.getText());
+            }
+        });
+
+        addSerializer(type, new JsonSerializer<T>() {
+            @Override
+            public void serialize(T value,
+                                  JsonGenerator gen,
+                                  SerializerProvider serializers) throws IOException {
+                gen.writeString(showFn.apply(value));
             }
         });
     }

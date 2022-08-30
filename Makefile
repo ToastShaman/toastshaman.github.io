@@ -1,5 +1,5 @@
 build:
-	hugo -D
+	hugo
 .PHONY: build
 
 serve:
