@@ -1,3 +1,4 @@
+{{ if .Site.Params.GoogleAnalyticsID }}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.GoogleAnalyticsID }}"></script>
 <script>
@@ -7,3 +8,4 @@
 
   gtag('config', '{{ .Site.Params.GoogleAnalyticsID }}');
 </script>
+{{ end }}

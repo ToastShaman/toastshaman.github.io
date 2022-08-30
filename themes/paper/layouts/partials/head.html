@@ -80,9 +80,6 @@
   <!---->
   {{ template "_internal/twitter_cards.html" . }}
   <!---->
+  {{ partial "analytics-gtag.html" . }}
   {{ end }}
 </head>
-
-{{ if .Site.Params.GoogleAnalyticsID }}
-  {{ partial "analytics-gtag.html" . }}
-{{ end }}
