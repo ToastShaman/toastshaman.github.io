@@ -5,9 +5,10 @@ theme = 'paper'
 publishDir = 'docs'
 
 disqusShortname = 'toastshaman'
-googleAnalytics = 'G-0809XBT1KC'
 
 [params]
+  GoogleAnalyticsID = 'G-0809XBT1KC'
+  
   color = 'gray'
 
   twitter = 'toastshaman'
