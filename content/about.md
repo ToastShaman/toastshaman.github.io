@@ -1,7 +1,6 @@
 ---
 title: "About"
 date: 2022-08-30T14:15:48+01:00
-aliases: ["contact"]
 comments: false
 ---
 
