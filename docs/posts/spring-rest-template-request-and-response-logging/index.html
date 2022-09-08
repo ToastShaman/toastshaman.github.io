@@ -122,7 +122,7 @@ public class LoggingClientHttpRequestInterceptor implements ClientHttpRequestInt
 Creating an Interceptor You&rsquo;ll need to create a class that extends ClientHttpRequestInterceptor and implement the intercept method.
 public class LoggingClientHttpRequestInterceptor implements ClientHttpRequestInterceptor { private static final AtomicInteger idx = new AtomicInteger(-1); private final PrintWriter writer; public LoggingClientHttpRequestInterceptor(PrintWriter writer) { this."><meta itemprop="datePublished" content="2022-09-08T09:41:57+01:00" />
 <meta itemprop="dateModified" content="2022-09-08T09:41:57+01:00" />
-<meta itemprop="wordCount" content="327">
+<meta itemprop="wordCount" content="324">
 <meta itemprop="keywords" content="programming,spring-boot," />
   
   <meta name="twitter:card" content="summary"/>
@@ -358,10 +358,10 @@ If you need better control over exactly what&rsquo;s logged you can use a custom
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RestClientConfig</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> RestTemplate <span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        RestTemplate restTemplate <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RestTemplate<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        restTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">getInterceptors</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> LoggingClientHttpRequestInterceptor<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> PrintWriter<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">)));</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> restTemplate<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> RestTemplate <span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">(</span>RestTemplateBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> builder
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">interceptors</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> LoggingClientHttpRequestInterceptor<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> PrintWriter<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">)))</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>Once registered, Spring will call the intercept method before the request is dispatched, which allows you to log the request and response.</p>
 </section>
