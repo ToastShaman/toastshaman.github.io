@@ -6,7 +6,18 @@
     <description>Recent content in programming on The Programming Bibliophile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 27 Aug 2022 13:30:10 +0100</lastBuildDate><atom:link href="https://blog.toastshaman.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 09:41:57 +0100</lastBuildDate><atom:link href="https://blog.toastshaman.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Rest Template Request and Response Logging</title>
+      <link>https://blog.toastshaman.com/posts/spring-rest-template-request-and-response-logging/</link>
+      <pubDate>Thu, 08 Sep 2022 09:41:57 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/posts/spring-rest-template-request-and-response-logging/</guid>
+      <description>It&amp;rsquo;s sometimes useful to log HTTP requests and responses when working with a Spring RestTemplate. If you need better control over exactly what&amp;rsquo;s logged you can use a custom interceptor to add logging before and after the remote call.
+Creating an Interceptor You&amp;rsquo;ll need to create a class that extends ClientHttpRequestInterceptor and implement the intercept method.
+public class LoggingClientHttpRequestInterceptor implements ClientHttpRequestInterceptor { private static final AtomicInteger idx = new AtomicInteger(-1); private final PrintWriter writer; public LoggingClientHttpRequestInterceptor(PrintWriter writer) { this.</description>
+    </item>
+    
     <item>
       <title>Tiny Types: Avoid stringly-typed systems</title>
       <link>https://blog.toastshaman.com/posts/tiny-types/</link>

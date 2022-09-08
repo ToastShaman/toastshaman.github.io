@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.toastshaman.com/posts/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/programming/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/posts/spring-rest-template-request-and-response-logging/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/spring-boot/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/</loc>
+    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+  </url><url>
     <loc>https://blog.toastshaman.com/about/</loc>
     <lastmod>2022-08-30T14:15:48+01:00</lastmod>
   </url><url>
@@ -9,21 +27,6 @@
     <lastmod>2022-08-27T13:30:10+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/tags/oop/</loc>
-    <lastmod>2022-08-27T13:30:10+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/posts/</loc>
-    <lastmod>2022-08-27T13:30:10+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/tags/programming/</loc>
-    <lastmod>2022-08-27T13:30:10+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/tags/spring-boot/</loc>
-    <lastmod>2022-08-27T13:30:10+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/tags/</loc>
-    <lastmod>2022-08-27T13:30:10+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/</loc>
     <lastmod>2022-08-27T13:30:10+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/posts/tiny-types/</loc>

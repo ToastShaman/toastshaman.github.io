@@ -5,7 +5,7 @@ tags: ['programming', 'testing', 'tdd']
 draft: true
 ---
 
-A common unit test I write might look something like this
+I've recently come to the conclusion that setting-up and maintaining test data is in most cases not helpful in conveying the intention of a unit test.
 
 ```kotlin
 data class User(
