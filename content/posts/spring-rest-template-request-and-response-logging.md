@@ -103,10 +103,10 @@ You'll need to register the interceptor with the RestTemplate by adding it to th
 @Configuration
 public class RestClientConfig {
     @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getInterceptors().add(new LoggingClientHttpRequestInterceptor(new PrintWriter(System.out)));
-        return restTemplate;
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder
+            .interceptors(new LoggingClientHttpRequestInterceptor(new PrintWriter(System.out)))
+            .build();
     }
 ```
 
