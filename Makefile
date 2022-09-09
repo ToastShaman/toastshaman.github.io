@@ -11,6 +11,5 @@ publish: build
 .PHONY: publish
 
 new:
-	@read -p "Enter Page Name: " page; \
-	hugo new posts/$$page.md
+	@read -p "Enter Filename: " page; hugo new posts/$$page
 .PHONY: new

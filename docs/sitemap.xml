@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.toastshaman.com/tags/kotlin/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://blog.toastshaman.com/posts/</loc>
-    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/tags/programming/</loc>
-    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/tdd/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/tags/testing/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/posts/testing-with-fake-data/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.toastshaman.com/</loc>
+    <lastmod>2022-09-09T10:00:00+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/posts/spring-rest-template-request-and-response-logging/</loc>
     <lastmod>2022-09-08T09:41:57+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/tags/spring-boot/</loc>
-    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/tags/</loc>
-    <lastmod>2022-09-08T09:41:57+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.toastshaman.com/</loc>
     <lastmod>2022-09-08T09:41:57+01:00</lastmod>
   </url><url>
     <loc>https://blog.toastshaman.com/about/</loc>
