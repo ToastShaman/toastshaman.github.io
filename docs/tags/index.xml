@@ -7,5 +7,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Fri, 09 Sep 2022 10:00:00 +0100</lastBuildDate><atom:link href="https://blog.toastshaman.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kotlin</title>
+      <link>https://blog.toastshaman.com/tags/kotlin/</link>
+      <pubDate>Fri, 09 Sep 2022 10:00:00 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://blog.toastshaman.com/tags/programming/</link>
+      <pubDate>Fri, 09 Sep 2022 10:00:00 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tdd</title>
+      <link>https://blog.toastshaman.com/tags/tdd/</link>
+      <pubDate>Fri, 09 Sep 2022 10:00:00 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://blog.toastshaman.com/tags/testing/</link>
+      <pubDate>Fri, 09 Sep 2022 10:00:00 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring-boot</title>
+      <link>https://blog.toastshaman.com/tags/spring-boot/</link>
+      <pubDate>Thu, 08 Sep 2022 09:41:57 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jackson</title>
+      <link>https://blog.toastshaman.com/tags/jackson/</link>
+      <pubDate>Sat, 27 Aug 2022 13:30:10 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/jackson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oop</title>
+      <link>https://blog.toastshaman.com/tags/oop/</link>
+      <pubDate>Sat, 27 Aug 2022 13:30:10 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tiny-types</title>
+      <link>https://blog.toastshaman.com/tags/tiny-types/</link>
+      <pubDate>Sat, 27 Aug 2022 13:30:10 +0100</pubDate>
+      
+      <guid>https://blog.toastshaman.com/tags/tiny-types/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

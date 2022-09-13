@@ -51,6 +51,15 @@
   </nav>
   {{ end }}
 
+  <!-- Mermaid -->
+  {{ if .Page.Store.Get "hasMermaid" }}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ 
+    startOnLoad: true,
+    theme: 'dark'
+  });</script>
+  {{ end }}
+
   <!-- Disqus -->
   {{ if and site.DisqusShortname (not (eq .Params.comments false)) }}
   <div id="disqus_thread"></div>
