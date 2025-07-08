@@ -1,4 +1,4 @@
-baseURL = 'https://blog.toastshaman.com/'
+baseURL = 'https://toastshaman.github.io'
 languageCode = 'en-gb'
 title = 'The Programming Bibliophile'
 theme = 'paper'
